@@ -1,0 +1,18 @@
+{% extends 'header.html' %}
+
+{% block content %}
+{% load static %}
+
+    {% for book in books.all %}
+        <div class="card mb-3 ml-3" style="width: 16rem; background-color: beige;">
+            <img src="{% static book.bookimage %}" class="card-img-top mt-2" alt="..." style="width: 200px; height: 250px; margin: auto;">
+            <div class="card-body">
+                <h5 class="card-title">{{book.booktitle}}</h5>
+                <p class="card-text" style="height: 50px;">{{book.bookdetail}}</p>
+                <p class="card-text"><i>Author: </i><b>{{book.bookauthor}}</b></p>
+                <a href="{% static book.bookpath %}" download="" class="btn btn-primary">Download</a>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}
